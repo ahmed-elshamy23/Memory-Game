@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --mainColor: #0075ff;
+}
+
+.start-screen,
+.result {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgb(0 0 0 / 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-screen .container {
+    justify-content: space-evenly;
+}
+
+.start-screen .difficulty {
+    font-size: 40px;
+}
+
+.start-screen select {
+    font-size: inherit;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    width: 400px;
+}
+
+.start-screen select:focus {
+    outline: none;
+}
+
+.header {
+    position: relative;
+}
+
+.header #timer {
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 40px 60px;
+    font-size: 40px;
+    border-radius: 10px;
+    background-color: var(--mainColor);
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+.result>div,
+.start-screen>div {
+    width: 800px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result span {
+    font-size: 30px;
+}
+
+.result>div>div {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result button {
+    margin-top: 30px;
+}
+
+.header {
+    width: 1000px;
+    padding: 15px 20px;
+    margin: 30px auto 50px;
+    background-color: #eee;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main {
+    width: 1000px;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.main .card {
+    height: 200px;
+    border: 3px solid var(--mainColor);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.3s;
+}
+
+.card.flipped,
+.card.done {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+.main .card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.main .card img:first-child {
+    z-index: 2;
+}
+
+.main .card img:last-child {
+    transform: rotateY(180deg);
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.timeUp {
+    color: red;
+    font-weight: bold;
+}
